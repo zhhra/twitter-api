@@ -10,8 +10,8 @@ class RecursiveSerializer(serializers.Serializer):
 
 class CommentModelSerializer(serializers.ModelSerializer):
     writer = serializers.StringRelatedField()
-    reply_comments = RecursiveSerializer(many=True, read_only=True)
+    reply_comments = RecursiveSerializer(many=True)
 
     class Meta:
         model = Comment
-        fields = ["writer", "body", "created", "reply_comments"]
+        fields = ["tweet", "writer", "body", "created", "reply_comments"]

@@ -6,6 +6,7 @@ from collections import OrderedDict
 class TweetModelSerializer(serializers.ModelSerializer):
     quote = serializers.PrimaryKeyRelatedField(read_only=True)
     retweet = serializers.PrimaryKeyRelatedField(read_only=True)
+    author = serializers.StringRelatedField()
 
     class Meta:
         model = Tweet

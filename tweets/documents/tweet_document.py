@@ -17,8 +17,6 @@ html_strip = analyzer(
 @TWEET_INDEX.doc_type
 class TweetDocument(Document):
 
-    id = fields.IntegerField(attr="id")
-
     author = fields.ObjectField(
         attr="author",
         properties={
@@ -28,19 +26,8 @@ class TweetDocument(Document):
         },
     )
 
-    created = fields.DateField(attr="created")
-
-    tweet_body = fields.TextField(
-        analyzer=html_strip,
-    )
-
     likes = fields.TextField(
         attr="likes_count",
-        # multi=True
-    )
-
-    quote_body = fields.TextField(
-        analyzer=html_strip,
     )
 
     quote = fields.ObjectField(
@@ -69,3 +56,8 @@ class TweetDocument(Document):
 
     class Django:
         model = Tweet
+        fields = [
+            "created",
+            "tweet_body",
+            "quote_body",
+        ]

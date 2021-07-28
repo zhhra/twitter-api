@@ -8,20 +8,20 @@ from .views.like_info import LikeInfo
 from .views.quote import Quote
 from .views.retweet import Retweet
 from .views.search import TweetListView
-from .views.tweet_document_view import TweetDcoumentView
+from .views.tweet_document_view import TweetDocumentView
 
 app_name = "tweet"
 urlpatterns = [
-    path("tweet/info/api/<int:pk>", TweetInfo.as_view(), name="info"),
-    path("tweet/create/api", TweetCreate.as_view(), name="create"),
-    path("tweet/delete/api/<int:pk>", TweetDelete.as_view(), name="delete"),
-    path("tweet/likedby/api/<int:pk>", LikeInfo.as_view(), name="liked_by"),
-    path("tweet/like/api/<int:pk>", like, name="like"),
-    path("timeline/api", Timeline.as_view(), name="timeline"),
-    path("tweet/search/api", TweetListView.as_view(), name="search"),
+    path("api/tweet/info/<int:pk>", TweetInfo.as_view(), name="info"),
+    path("api/tweet/create", TweetCreate.as_view(), name="create"),
+    path("api/quote/<int:pk>", Quote.as_view(), name="quote"),
+    path("api/retweet/<int:pk>", Retweet.as_view(), name="retweet"),
+    path("api/tweet/delete/<int:pk>", TweetDelete.as_view(), name="delete"),
+    path("api/tweet/likedby/<int:pk>", LikeInfo.as_view(), name="liked_by"),
+    path("api/tweet/like/<int:pk>", like, name="like"),
+    path("api/timeline", Timeline.as_view(), name="timeline"),
+    path("api/tweet/search", TweetListView.as_view(), name="search"),
     path(
-        "tweets/search/api", TweetDcoumentView.as_view({"get": "list"}), name="search"
+        "api/tweets/search", TweetDocumentView.as_view({"get": "list"}), name="search"
     ),
-    path("quote/api/<int:pk>", Quote.as_view(), name="quote"),
-    path("retweet/api/<int:pk>", Retweet.as_view(), name="retweet"),
 ]

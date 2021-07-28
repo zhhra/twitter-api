@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     "django_filters",
     "rest_framework_simplejwt",
     "django_elasticsearch_dsl",
-    "django_elasticsearch_dsl_drf",
 ]
 
 MIDDLEWARE = [

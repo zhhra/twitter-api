@@ -3,13 +3,10 @@ from ..models.tweet import Tweet
 
 
 class TweetCreateModelSerializer(serializers.ModelSerializer):
+    tweet_body = serializers.CharField(max_length=148, required=True)
+
     class Meta:
         model = Tweet
         fields = [
             "tweet_body",
         ]
-
-    def validate_tweet_body(self, value):
-        if not value:
-            raise serializers.ValidationError("Body is required")
-        return value

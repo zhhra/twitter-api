@@ -6,9 +6,9 @@ from .views.comment_list import CommentList
 
 app_name = "comments"
 urlpatterns = [
-    path("info/api/<int:pk>", CommentInfo.as_view(), name="info"),
-    path("create/api/<int:pk>", CommentCreate.as_view(), name="create"),
-    path("create/api/<int:pk>/<int:comment>", CommentCreate.as_view(), name="reply"),
-    path("delete/api/<int:pk>", CommentDelete.as_view(), name="delete"),
-    path("list/api", CommentList.as_view(), name="comments_list"),
+    path("api/info/<int:pk>", CommentInfo.as_view(), name="info"),
+    path("api/create/<int:pk>", CommentCreate.as_view(), name="create"),
+    path("api/create/<int:pk>/<int:comment>", CommentCreate.as_view(), name="reply"),
+    path("api/delete/<int:pk>", CommentDelete.as_view(), name="delete"),
+    path("api/list", CommentList.as_view(), name="comments_list"),
 ]
